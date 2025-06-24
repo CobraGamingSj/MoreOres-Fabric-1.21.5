@@ -42,7 +42,7 @@ public record GemPolisherButtonClick(int buttonID, BlockPos pos) implements Cust
                 }
             }
 
-        System.out.println("Received button click with ID: " + buttonID + " at " + pos);
+        MoreOresModInitializer.LOGGER.info("Received button click with ID: {} at {}", buttonID, pos);
 
         }
 

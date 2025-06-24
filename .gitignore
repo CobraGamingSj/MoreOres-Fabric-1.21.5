@@ -29,7 +29,6 @@ bin/
 *.DS_Store
 
 # fabric
-gradle.properties
 
 run/
 

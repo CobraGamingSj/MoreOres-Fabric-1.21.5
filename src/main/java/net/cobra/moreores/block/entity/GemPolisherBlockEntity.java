@@ -98,11 +98,6 @@ public class GemPolisherBlockEntity extends BlockEntity implements ExtendedScree
     public void setEnergyLevel(long energyLevel) {
         this.energyStorage.amount = energyLevel;
     }
-
-    public void setProgress(int maxProgress) {
-        this.initialProgress = maxProgress;
-    }
-
     @Nullable
     @Override
     public Packet<ClientPlayPacketListener> toUpdatePacket() {
@@ -117,23 +112,23 @@ public class GemPolisherBlockEntity extends BlockEntity implements ExtendedScree
     }
 
     @Override
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.writeNbt(nbt, registryLookup);
+        Inventories.writeNbt(nbt, inventory, registryLookup);
+        nbt.putInt("gem_polisher.progress", initialProgress);
+        nbt.putLong("gem_polisher.energy", energyStorage.amount);
+        nbt.putNullable("PolishingState", PolishingState.CODEC, polishingState);
+    }
+
+    @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
         Inventories.readNbt(nbt, inventory, registryLookup);
         if(nbt.contains("gem_polisher.progress")) initialProgress = nbt.getInt("gem_polisher.progress").get();
         if(nbt.contains("gem_polisher.energy")) energyStorage.amount = nbt.getLong("gem_polisher.energy").get();
         if(nbt.contains("PolishingState")) {
-            polishingState = PolishingState.valueOf(nbt.getString("PolishingState").get());
+            polishingState = nbt.get("PolishingState", PolishingState.CODEC).orElse(PolishingState.IDLE);
         }
-    }
-
-    @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
-        Inventories.writeNbt(nbt, inventory, registryLookup);
-        nbt.putInt("gem_polisher.progress", initialProgress);
-        nbt.putLong("gem_polisher.energy", energyStorage.amount);
-        nbt.putString("PolishingState", polishingState.name());
     }
 
     @Override
@@ -186,14 +181,24 @@ public class GemPolisherBlockEntity extends BlockEntity implements ExtendedScree
         }
 
         if (hasEnergySourceProviderItem()) {
-            try (Transaction transaction = Transaction.openOuter()) {
-                this.energyStorage.insert(32, transaction);
+            if(getStack(ENERGY_SOURCE_SLOT).isOf(ModItems.ENERGY_INGOT)) {
+                try (Transaction transaction = Transaction.openOuter()) {
+                    this.energyStorage.insert(32, transaction);
 
-                if (this.world.isReceivingRedstonePower(this.pos)) {
-                    this.energyStorage.insert(1024, transaction);
+                    if (this.world.isReceivingRedstonePower(this.pos)) {
+                        this.energyStorage.insert(1024, transaction);
+                    }
+                    transaction.commit();
                 }
+            } else {
+                try (Transaction transaction = Transaction.openOuter()) {
+                    this.energyStorage.insert(48, transaction);
 
-                transaction.commit();
+                    if (this.world.isReceivingRedstonePower(this.pos)) {
+                        this.energyStorage.insert(1192, transaction);
+                    }
+                    transaction.commit();
+                }
             }
         }
 
@@ -297,26 +302,26 @@ public class GemPolisherBlockEntity extends BlockEntity implements ExtendedScree
     }
 
     public void startPolish() {
-        if(polishingState == PolishingState.IDLE && hasRecipe() && hasEnoughEnergy()) {
-            polishingState.setState(1);
+        if(polishingState.isIdle() && hasRecipe() && hasEnoughEnergy()) {
+            polishingState = PolishingState.RUNNING;
         }
     }
 
     public void pausePolish() {
-        if(polishingState == PolishingState.RUNNING) {
-            polishingState.setState(2);
+        if(polishingState.isRunning()) {
+            polishingState = PolishingState.PAUSED;
         }
     }
 
     public void resumePolish() {
-        if(polishingState == PolishingState.PAUSED) {
-            polishingState.setState(1);
+        if(polishingState.isPaused()) {
+            polishingState = PolishingState.RUNNING;
         }
     }
 
     public void stopPolish() {
-        if (polishingState != PolishingState.IDLE) {
-            polishingState.setState(0);
+        if (!polishingState.isIdle()) {
+            polishingState = PolishingState.IDLE;
             resetProgress();
         }
     }
