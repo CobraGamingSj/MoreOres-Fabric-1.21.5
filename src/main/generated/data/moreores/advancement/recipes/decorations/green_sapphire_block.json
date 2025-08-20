@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:green_sapphire_block"
+        "recipe": "moreores:green_sapphire_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:green_sapphire_block"
+      "moreores:green_sapphire_block"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:netherite_ingot_from_blasting_ruby"
+        "recipe": "moreores:netherite_ingot_from_blasting_ruby"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:netherite_ingot_from_blasting_ruby"
+      "moreores:netherite_ingot_from_blasting_ruby"
     ]
   }
 }

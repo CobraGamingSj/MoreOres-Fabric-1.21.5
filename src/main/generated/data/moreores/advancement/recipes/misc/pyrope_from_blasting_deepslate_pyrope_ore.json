@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:pyrope_from_blasting_deepslate_pyrope_ore"
+        "recipe": "moreores:pyrope_from_blasting_deepslate_pyrope_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:pyrope_from_blasting_deepslate_pyrope_ore"
+      "moreores:pyrope_from_blasting_deepslate_pyrope_ore"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:green_garnet_from_smelting_green_garnet_ore"
+        "recipe": "moreores:green_garnet_from_smelting_green_garnet_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:green_garnet_from_smelting_green_garnet_ore"
+      "moreores:green_garnet_from_smelting_green_garnet_ore"
     ]
   }
 }

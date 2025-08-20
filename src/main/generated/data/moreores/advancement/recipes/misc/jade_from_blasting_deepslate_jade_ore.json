@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:jade_from_blasting_deepslate_jade_ore"
+        "recipe": "moreores:jade_from_blasting_deepslate_jade_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:jade_from_blasting_deepslate_jade_ore"
+      "moreores:jade_from_blasting_deepslate_jade_ore"
     ]
   }
 }

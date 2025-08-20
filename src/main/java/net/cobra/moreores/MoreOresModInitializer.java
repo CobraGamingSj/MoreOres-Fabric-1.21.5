@@ -41,12 +41,12 @@ public class MoreOresModInitializer implements ModInitializer {
 	public static final String ID = "minecraft";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static Identifier getId(String id) {
+	public static Identifier byId(String id) {
 		return Identifier.of(MOD_ID, id);
 	}
 
 	public static RegistryKey<Item> setRegistryKey(String registryKey) {
-		return RegistryKey.of(RegistryKeys.ITEM, getId(registryKey));
+		return RegistryKey.of(RegistryKeys.ITEM, byId(registryKey));
 	}
 
 
@@ -74,7 +74,7 @@ public class MoreOresModInitializer implements ModInitializer {
 
 
 		// Gemstones Item Group Registry
-		Registry.register(Registries.ITEM_GROUP, getId("gemstones"), GEMSTONES);
+		Registry.register(Registries.ITEM_GROUP, byId("gemstones"), GEMSTONES);
 
 
 		// Fuel Registry
