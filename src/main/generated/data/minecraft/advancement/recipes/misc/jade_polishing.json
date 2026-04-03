@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:jade_polishing"
+        "recipe": "minecraft:jade_purifying"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:jade_polishing"
+      "minecraft:jade_purifying"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:pink_garnet_polishing"
+        "recipe": "minecraft:pink_garnet_purifying"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:pink_garnet_polishing"
+      "minecraft:pink_garnet_purifying"
     ]
   }
 }

@@ -54,12 +54,6 @@ public class ItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SAPPHIRE_SWORD)
                 .add(ModItems.RADIANT_SWORD);
 
-        getOrCreateTagBuilder(ItemTags.FIRE_ASPECT_ENCHANTABLE)
-                .forceAddTag(ItemTags.SWORD_ENCHANTABLE);
-
-        getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE)
-                .forceAddTag(ItemTags.SWORDS);
-
         getOrCreateTagBuilder(ItemTags.PICKAXES)
                 .add(ModItems.RUBY_PICKAXE)
                 .add(ModItems.SAPPHIRE_PICKAXE);
@@ -75,34 +69,6 @@ public class ItemTagGen extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.HOES)
                 .add(ModItems.RUBY_HOE)
                 .add(ModItems.SAPPHIRE_HOE);
-
-        getOrCreateTagBuilder(ItemTags.EQUIPPABLE_ENCHANTABLE)
-                .forceAddTag(ItemTags.HEAD_ARMOR)
-                .forceAddTag(ItemTags.CHEST_ARMOR)
-                .forceAddTag(ItemTags.LEG_ARMOR)
-                .forceAddTag(ItemTags.FOOT_ARMOR);
-
-        getOrCreateTagBuilder(ItemTags.MINING_ENCHANTABLE)
-                .forceAddTag(ItemTags.PICKAXES)
-                .forceAddTag(ItemTags.HOES)
-                .forceAddTag(ItemTags.AXES)
-                .forceAddTag(ItemTags.SHOVELS);
-
-        getOrCreateTagBuilder(ItemTags.MINING_LOOT_ENCHANTABLE)
-                .forceAddTag(ItemTags.PICKAXES)
-                .forceAddTag(ItemTags.HOES)
-                .forceAddTag(ItemTags.AXES)
-                .forceAddTag(ItemTags.SHOVELS);
-
-        getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE)
-                .forceAddTag(ItemTags.SHARP_WEAPON_ENCHANTABLE);
-
-        getOrCreateTagBuilder(ItemTags.VANISHING_ENCHANTABLE)
-                .forceAddTag(ItemTags.DURABILITY_ENCHANTABLE);
-
-        getOrCreateTagBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
-                .forceAddTag(ItemTags.SWORDS)
-                .forceAddTag(ItemTags.AXES);
 
         getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
                 .add(ModItems.RUBY_BOOTS)
@@ -120,18 +86,6 @@ public class ItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.RUBY_CHESTPLATE)
                 .add(ModItems.SAPPHIRE_CHESTPLATE);
 
-        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.FOOT_ARMOR);
-
-        getOrCreateTagBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.LEG_ARMOR);
-
-        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.HEAD_ARMOR);
-
-        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.CHEST_ARMOR);
-
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.RUBY_HELMET)
                 .add(ModItems.RUBY_CHESTPLATE)
@@ -141,12 +95,6 @@ public class ItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SAPPHIRE_CHESTPLATE)
                 .add(ModItems.SAPPHIRE_LEGGINGS)
                 .add(ModItems.SAPPHIRE_BOOTS);
-
-        getOrCreateTagBuilder(ItemTags.ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.LEG_ARMOR_ENCHANTABLE)
-                .forceAddTag(ItemTags.FOOT_ARMOR_ENCHANTABLE);
 
         getOrCreateTagBuilder(ModItemTags.GEMSTONE)
                 .add(ModItems.RUBY)
@@ -184,8 +132,8 @@ public class ItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(Items.GOLD_INGOT);
 
         getOrCreateTagBuilder(ModItemTags.RARE)
-                .forceAddTag(ModItemTags.GEMSTONE)
-                .forceAddTag(ModItemTags.METAL);
+                .addTag(ModItemTags.GEMSTONE)
+                .addTag(ModItemTags.METAL);
 
         getOrCreateTagBuilder(ModItemTags.JUKEBOX_PLAYABLE_DISCS)
                 .add(ModItems.MUSIC_DISC_ARIA_MATH)

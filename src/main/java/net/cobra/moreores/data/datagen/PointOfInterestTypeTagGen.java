@@ -20,7 +20,7 @@ public class PointOfInterestTypeTagGen extends TagProvider<PointOfInterestType> 
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
-        this.getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
+        this.getTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
                 .addOptional(Identifier.of(ID, JEWEL_KEY));
     }
 }
