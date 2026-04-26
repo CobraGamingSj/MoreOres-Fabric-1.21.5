@@ -1,6 +1,7 @@
 package net.cobra.moreores;
 
 import net.cobra.moreores.block.jukebox.ModJukeboxSongs;
+import net.cobra.moreores.data.datagen.ModCarDefinitionGenerator;
 import net.cobra.moreores.data.datagen.*;
 import net.cobra.moreores.enchantment.ModEnchantments;
 import net.cobra.moreores.item.equipment.trim.ModArmorTrimMaterials;
@@ -25,6 +26,7 @@ public class MoreOresDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(LootTableGenerator::new);
 		pack.addProvider(PointOfInterestTypeTagGen::new);
 		pack.addProvider(RecipeGen::new);
+//		pack.addProvider(ModCarDefinitionGenerator::new);
 	}
 
 	@Override

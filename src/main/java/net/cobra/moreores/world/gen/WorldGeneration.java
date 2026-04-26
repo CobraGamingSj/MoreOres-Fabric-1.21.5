@@ -9,8 +9,6 @@ import net.minecraft.world.gen.GenerationStep;
 public class WorldGeneration {
     public static void generate() {
 
-        MoreOresModInitializer.LOGGER.info("Setting Up world generation for Custom Ores for " + MoreOresModInitializer.MOD_ID + " mod.");
-
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModOrePlacedFeatures.ORE_RUBY);
 
@@ -66,6 +64,12 @@ public class WorldGeneration {
                 GenerationStep.Feature.UNDERGROUND_ORES, ModOrePlacedFeatures.ORE_GREEN_GARNET_LARGE);
 
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModOrePlacedFeatures.ORE_KYAWTHUITE);
+
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModOrePlacedFeatures.ORE_KYAWTHUITE_DEEPSLATE);
+
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModOrePlacedFeatures.ORE_TOPAZ);
 
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
@@ -109,5 +113,7 @@ public class WorldGeneration {
 
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModOrePlacedFeatures.ORE_PYROPE_LARGE);
+
+        MoreOresModInitializer.LOGGER.info("Setting Up world generation for Custom Ores for " + MoreOresModInitializer.MOD_ID + " mod.");
     }
 }

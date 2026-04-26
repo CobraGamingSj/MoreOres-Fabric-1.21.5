@@ -17,6 +17,8 @@ public class MoreOresClientModInitializer implements ClientModInitializer {
     public void onInitializeClient() {
         ModS2CNetworks.registerClientS2C();
 
+
+//        EntityRendererRegistry.register(ModCarEntities.FERRARI, FerrariCarEntityRenderer::new);
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINEAPPLE_CROP, RenderLayer.getCutout());
 

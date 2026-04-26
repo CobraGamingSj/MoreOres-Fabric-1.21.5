@@ -17,7 +17,7 @@ import java.util.List;
  * A simple {@code SidedInventory} implementation with only default methods + an item list getter.
  *
  * <h2>Reading and writing to tags</h2>
- * Use {@link Inventories#writeNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)} (NbtCompound, DefaultedList)} and {@link Inventories#readNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)} (ReadView, DefaultedList)} (NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)}
+ * Use {@link Inventories#writeNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)} (WriteView, DefaultedList)} (NbtCompound, DefaultedList)} and {@link Inventories#readNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)} (ReadView, DefaultedList)} (NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)}
  * on {@linkplain #getItems() the item list}.
  *
  * License: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
@@ -133,19 +133,19 @@ public interface ImplementedInventory extends SidedInventory {
     }
 
     /**
-     * @return true is this inventory has full firstInputStack, false otherwise
+    * @return true is this inventory has full firstInputStack, false otherwise
      */
 
     default boolean isFull() {
-        for (int i  = 0; i < size(); i++) {
-            ItemStack stack = getStack(i);
-            if (!stack.isEmpty()) {
-                return true;
-            }
-        }
+         for (int i  = 0; i < size(); i++) {
+             ItemStack stack = getStack(i);
+             if (!stack.isEmpty()) {
+                 return true;
+             }
+         }
 
-        return false;
-    }
+         return false;
+     }
 
 
     /**
@@ -169,6 +169,10 @@ public interface ImplementedInventory extends SidedInventory {
 
     default ItemStack energyStack() {
         return getStack(2);
+    }
+
+    default ItemStack fluidStack() {
+        return getStack(3);
     }
 
     /**

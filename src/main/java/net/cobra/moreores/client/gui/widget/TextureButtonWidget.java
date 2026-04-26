@@ -32,7 +32,7 @@ public class TextureButtonWidget extends ButtonWidget {
     @Override
     protected void renderWidget(DrawContext context, int mouseX, int mouseY, float deltaTicks) {
         context.drawTexture(RenderLayer::getGuiTextured, texture, getX(), getY(), 0, 0, this.getWidth(), this.getHeight(), 32, 32);
-        context.drawBorder(getX(), getY(), 32, 32, -12566464);
+        context.drawBorder(getX(), getY(), 32, 32, Colors.GRAY);
         if(isHovered()) {
             context.drawBorder(getX(), getY(), 32, 32, Colors.BLACK);
         }

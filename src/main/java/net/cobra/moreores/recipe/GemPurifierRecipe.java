@@ -47,18 +47,18 @@ public class GemPurifierRecipe implements Recipe<GemPurifyingRecipeInput> {
 
     @Override
     public boolean matches(GemPurifyingRecipeInput input, World world) {
-        if (world.isClient) return false;
+        if (world.isClient()) return false;
         return this.ingredient.test(input.inputStack());
     }
 
     @Override
     public RecipeSerializer<? extends Recipe<GemPurifyingRecipeInput>> getSerializer() {
-        return Serializer.GEM_POLISHING;
+        return Serializer.INSTANCE;
     }
 
     @Override
     public RecipeType<? extends Recipe<GemPurifyingRecipeInput>> getType() {
-        return Type.GEM_POLISHING;
+        return Type.INSTANCE;
     }
 
     @Override
@@ -93,14 +93,14 @@ public class GemPurifierRecipe implements Recipe<GemPurifyingRecipeInput> {
 
         //RECIPE PROPERTIES
         private Type() {}
-        public static final Type GEM_POLISHING = new Type();
+        public static final Type INSTANCE = new Type();
         public static final String ID = "gem_polishing"; //Recipe ID
     }
 
     public static class Serializer implements RecipeSerializer<GemPurifierRecipe> {
 
         //RECIPE PROPERTIES
-        public static final Serializer GEM_POLISHING = new Serializer();
+        public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "gem_polishing"; //Recipe ID
 
         //CODEC

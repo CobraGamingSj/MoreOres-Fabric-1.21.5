@@ -1,7 +1,9 @@
 package net.cobra.moreores.networking;
 
 import net.cobra.moreores.MoreOresModInitializer;
-import net.cobra.moreores.block.data.GemPurifierData;
+import net.cobra.moreores.block.data.GemPurifierEnergyData;
+import net.cobra.moreores.block.data.GemPurifierFluidData;
+import net.cobra.moreores.block.data.GemPurifierSynchronizer;
 import net.cobra.moreores.block.data.PolishingStateData;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.network.RegistryByteBuf;
@@ -13,8 +15,10 @@ import static net.cobra.moreores.MoreOresModInitializer.LOGGER;
 @SuppressWarnings("Same PaR VAL")
 public class ModS2CPayloadRegistry {
     static {
-       registerS2C(GemPurifierData.ID, GemPurifierData.PACKET_CODEC);
-       registerS2C(PolishingStateData.ID, PolishingStateData.CODEC);
+       registerS2C(GemPurifierEnergyData.ID, GemPurifierEnergyData.PACKET_CODEC);
+       registerS2C(GemPurifierFluidData.ID, GemPurifierFluidData.PACKET_CODEC);
+       registerS2C(PolishingStateData.ID, PolishingStateData.PACKET_CODEC);
+       registerS2C(GemPurifierSynchronizer.ID, GemPurifierSynchronizer.PACKET_CODEC);
     }
 
     public static<T extends CustomPayload> void registerS2C(CustomPayload.Id<T> id, PacketCodec<RegistryByteBuf, T> packetCodec) {
@@ -22,6 +26,6 @@ public class ModS2CPayloadRegistry {
     }
 
     public static void registerS2CPackets() {
-        LOGGER.info("Loading ModNetworkingPackets for " + MoreOresModInitializer.MOD_ID + " mod.");
+        LOGGER.info("Loading ModS2CPackets for " + MoreOresModInitializer.MOD_ID + " mod.");
     }
 }
